@@ -8,8 +8,16 @@ import {
   Revenue,
 } from './definitions';
 import { formatCurrency } from './utils';
+import { invoices } from './placeholder-data';
+import { custom } from 'zod';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+// // typescript
+// const totalInvoices = allInvoices.lenght
+// const totalCustomers = allCustomers.lenght
+// // SQL Query equivalent to typescript above
+// const invoiceCountPromise = sql`SELECT COUNT(*) FROM invoices`;
+// const customerCountPromise = sql`SELECT COUNT(*) FROM customers`;
 
 export async function fetchRevenue() {
   try {
@@ -51,6 +59,8 @@ export async function fetchLatestInvoices() {
 }
 
 export async function fetchCardData() {
+
+  
   try {
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate
